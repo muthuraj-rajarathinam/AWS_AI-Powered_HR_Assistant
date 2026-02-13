@@ -1,0 +1,42 @@
+import json
+import boto3
+from boto3.dynamodb.conditions import Key
+
+def lambda_handler(event, context):
+    parameters = event.get('parameters', [])
+
+    employee_name = None
+    for p in parameters:
+        if p['name'] == 'employee_name':
+            employee_name = p['value']
+
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('VacationTable')
+
+    response = table.query(
+        KeyConditionExpression=Key('employee_name').eq(employee_name)
+    )
+
+    items = response.get('Items', [])
+
+    if not items:
+        message = f"No vacation records found for {employee_name}."
+    else:
+        message = f"Vacation leave details for {employee_name}:\n"
+        for i in items:
+            message += f"- From {i['startDate']} to {i['endDate']}\n"
+
+    return {
+        "response": {
+            "actionGroup": event['actionGroup'],
+            "function": event['function'],
+            "functionResponse": {
+                "responseBody": {
+                    "TEXT": {
+                        "body": message
+                    }
+                }
+            }
+        },
+        "messageVersion": event['messageVersion']
+    }
