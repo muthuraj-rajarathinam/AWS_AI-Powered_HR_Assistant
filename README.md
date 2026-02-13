@@ -90,7 +90,6 @@ Got it — here’s the **correct order from scratch**, short and clear 👇
 * Name: `hr-knowledge-collection`
 * Wait until status = Active
 
----
 
 **Create Vector Index**
 
