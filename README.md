@@ -221,7 +221,7 @@ Test scenarios:
 
 * Ask policy questions
 * Submit vacation requests
-* Check leave balances
+* Check leave dates
 * Try edge cases (invalid dates, missing inputs)
 
 Make sure:
