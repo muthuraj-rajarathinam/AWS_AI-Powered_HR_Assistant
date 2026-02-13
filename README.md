@@ -177,6 +177,8 @@ Attach IAM policy:
   `dynamodb:GetItem
    dynamodb:Query`
 
+Make sure both Lambda Has BedrockInvoke Permissionn
+
 ---
 
 ### Step 6️⃣: Create Action Groups
