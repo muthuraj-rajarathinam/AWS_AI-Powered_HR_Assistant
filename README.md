@@ -165,7 +165,7 @@ Attach IAM policy:
   
  ---
  
-s -  Lambda 2: Check Leave Balance
+ -  Lambda 2: Check Leave Balance
  -  Function name: get_leave_details
 
 Responsibilities:
@@ -176,6 +176,8 @@ Responsibilities:
 Attach IAM policy:
   `dynamodb:GetItem
    dynamodb:Query`
+
+---
 
 ### Step 5: Create Action Groups
 
@@ -201,7 +203,7 @@ Define the API schema so the agent knows:
 
 ---
 
-### Step 4: DynamoDB Setup
+### Step 6: DynamoDB Setup
 
 Create a table with:
 
@@ -211,7 +213,7 @@ This structure allows efficient storage and retrieval of leave records.
 
 ---
 
-### Step 5: Test the Agent
+### Step 7: Test the Agent
 
 Test scenarios:
 
